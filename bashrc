@@ -608,6 +608,9 @@ alias chrome='chromium-browser'
 # Open giphyTV 
 alias giphytv='chromium-browser --app="http://tv.giphy.com/giphytrending" --window-size=600,600'
 
+# Open Slack in browser - set yourgroup to prefered group
+alias slack='chromium-browser --app="https://yourgroup.slack.com/messages/general" --window-size=600,600'
+
 # Show disk information
 alias disk='df -h | grep -e /dev/sd -e Filesystem'
 
@@ -615,10 +618,56 @@ alias disk='df -h | grep -e /dev/sd -e Filesystem'
 # Show terminal history
 alias h='history'
 
+#Oops forgot again
+alias apt-get='sudo apt-get'
+alias update='sudo apt-get update && sudo apt-get upgrade'
+
+# if user is not root, pass all commands via sudo #
+#if [ $UID -ne 0 ]; then
+#    alias reboot='sudo reboot'
+#    alias update='sudo apt-get upgrade'
+#fi
+
+# nginx if using it
+# also pass it via sudo so whoever is admin can reload it without calling you #
+#alias nginxreload='sudo /usr/local/nginx/sbin/nginx -s reload'
+#alias nginxtest='sudo /usr/local/nginx/sbin/nginx -t'
+#alias lightyload='sudo /etc/init.d/lighttpd reload'
+#alias lightytest='sudo /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf -t'
+#alias httpdreload='sudo /usr/sbin/apachectl -k graceful'
+#alias httpdtest='sudo /usr/sbin/apachectl -t && /usr/sbin/apachectl -t -D DUMP_VHOSTS'
+
+#Say no to cd hell
+## a quick way to get out of current directory ##
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+#OpenVPN connections change to your ovpn path
+alias vpnprod='sudo openvpn --client --config ~/.openvpn/prod-client.ovpn
+alias vpndev='sudo openvpn --client --config ~/.openvpn/dev-client.ovpn
+
+## this one saved my ass many times ##
+alias wget='wget -c'
+
+#A clean screen is a clean screen
+alias c='clear'
 
 # List current jobs
 alias j='jobs -l'
 
+#It's just better need to install htop to use
+alias top='htop'
+
+#headers are helpful
+# get web server headers #
+alias header='curl -I'
+ 
+# find out if remote server supports gzip / mod_deflate or not #
+alias headerc='curl -I --compress'
 
 function encode() { echo -n $@ | perl -pe's/([^-_.~A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg'; }
 # Search google by typing 'google argument' where argument is your search
