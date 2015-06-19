@@ -52,6 +52,27 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Correct dir spellings
+shopt -q -s cdspell
+ 
+# Make sure display get updated when terminal window get resized
+shopt -q -s checkwinsize
+ 
+# Turn on the extended pattern matching features 
+shopt -q -s extglob
+ 
+# Append rather than overwrite history on exit
+shopt -s histappend
+ 
+# Make multi-line commandsline in history
+shopt -q -s cmdhist 
+ 
+# Get immediate notification of bacground job termination
+set -o notify 
+ 
+# Disable [CTRL-D] which is used to exit the shell
+set -o ignoreeof
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -548,7 +569,37 @@ echo "Celsius    = $cels"
 echo "Kelvin     = $kelv"
 }
 
+# GIT shortcuts
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -a -v'
+alias gd='git diff | mate'
+alias gl='git pull'
+alias gp='git push'
+alias gpp='git pull;git push'
+alias gppd='git pull origin dev;git push origin dev'
+alias gst='git status'
+alias ga='git add . -v'
+alias gs='git status'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gitrollback='git reset --hard; git clean -f'
+alias gunadd='git reset HEAD'
 
+# git functions
+function rbr {
+ git checkout $1;
+ git pull origin $1;
+ git checkout $2;
+ git rebase $1;
+}
+
+function mbr {
+ git checkout $1;
+ git merge $2
+ git push origin $1;
+ git checkout $2;
+}
 
 
 # Open chromium web browser
