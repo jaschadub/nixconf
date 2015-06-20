@@ -647,8 +647,8 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
 #OpenVPN connections change to your ovpn path
-alias vpnprod='sudo openvpn --client --config ~/.openvpn/prod-client.ovpn
-alias vpndev='sudo openvpn --client --config ~/.openvpn/dev-client.ovpn
+alias vpnprod='sudo openvpn --client --config ~/.openvpn/prod-client.ovpn'
+alias vpndev='sudo openvpn --client --config ~/.openvpn/dev-client.ovpn'
 
 ## this one saved my ass many times ##
 alias wget='wget -c'
