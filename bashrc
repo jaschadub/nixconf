@@ -569,6 +569,10 @@ echo "Celsius    = $cels"
 echo "Kelvin     = $kelv"
 }
 
+#Docker shortcuts
+alias drm="sudo docker rm"
+alias dps="sudo docker ps"
+
 # GIT shortcuts
 alias gb='git branch'
 alias gba='git branch -a'
