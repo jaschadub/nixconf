@@ -702,3 +702,6 @@ function amazon() { chromium-browser http://www.amazon.com/s/ref=nb_ss?field-key
 
 # Search wikipedia
 function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`encode $@`" ;}
+
+# Wikipedia in terminal
+function wp() { wikipedia2text "`encode $@`" | more ;}
