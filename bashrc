@@ -593,6 +593,7 @@ alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gitrollback='git reset --hard; git clean -f'
 alias gunadd='git reset HEAD'
+alias gdiff='git diff HEAD~1 HEAD'
 
 # git functions
 function rbr {
