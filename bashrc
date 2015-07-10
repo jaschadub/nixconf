@@ -96,6 +96,9 @@ fi
 #tea timer
 alias teatimer='$(STEEP=300; sleep $STEEP; xmessage "Your tea is done") &'
 
+# reload bashrc fast
+alias rl='. ~/.bashrc'
+
 # autocomplete ssh commands
 complete -W "$(echo `cat ~/.bash_history | egrep '^ssh ' | sort | uniq | sed 's/^ssh //'`;)" ssh
 
