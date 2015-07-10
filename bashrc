@@ -610,6 +610,8 @@ function mbr {
  git checkout $2;
 }
 
+# list mounts in pretty column
+alias mls='mount | column -t'
 
 # Open chromium web browser
 alias chrome='chromium-browser'
