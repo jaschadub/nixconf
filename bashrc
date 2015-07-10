@@ -273,7 +273,11 @@ alias showkeys='sudo apt-key list'
 # (i.e. from behind a firewall/proxy)
 function cpo() { [[ $# -lt 2 ]] && echo 'need IP and port' && return 2; [[ `wget -q "http://dnstools.com/?count=3&checkp=on&portNum=$2&target=$1&submit=Go\!" -O - |grep -ic "Connected successfully to port $2"` -gt 0 ]] && echo OPEN || echo CLOSED; }
 
+##### show tcp/ip ports #####
+alias ports='netstat -tulanp'
 
+##### 5 will do #####
+alias ping='ping -c 5'
 
 ###### find an unused unprivileged TCP port
 function findtcp()
