@@ -98,6 +98,9 @@ fi
 #tea timer
 alias teatimer='$(STEEP=300; sleep $STEEP; xmessage "Your tea is done") &'
 
+# reload bashrc fast
+alias rl='. ~/.bashrc'
+
 # autocomplete ssh commands
 complete -W "$(echo `cat ~/.bash_history | egrep '^ssh ' | sort | uniq | sed 's/^ssh //'`;)" ssh
 
@@ -275,7 +278,11 @@ alias showkeys='sudo apt-key list'
 # (i.e. from behind a firewall/proxy)
 function cpo() { [[ $# -lt 2 ]] && echo 'need IP and port' && return 2; [[ `wget -q "http://dnstools.com/?count=3&checkp=on&portNum=$2&target=$1&submit=Go\!" -O - |grep -ic "Connected successfully to port $2"` -gt 0 ]] && echo OPEN || echo CLOSED; }
 
+##### show tcp/ip ports #####
+alias ports='netstat -tulanp'
 
+##### 5 will do #####
+alias ping='ping -c 5'
 
 ###### find an unused unprivileged TCP port
 function findtcp()
@@ -571,6 +578,10 @@ echo "Celsius    = $cels"
 echo "Kelvin     = $kelv"
 }
 
+#Docker shortcuts
+alias drm="sudo docker rm"
+alias dps="sudo docker ps"
+
 # GIT shortcuts
 alias gb='git branch'
 alias gba='git branch -a'
@@ -587,6 +598,7 @@ alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gitrollback='git reset --hard; git clean -f'
 alias gunadd='git reset HEAD'
+alias gdiff='git diff HEAD~1 HEAD'
 
 # git functions
 function rbr {
@@ -603,6 +615,8 @@ function mbr {
  git checkout $2;
 }
 
+# list mounts in pretty column
+alias mls='mount | column -t'
 
 # Open chromium web browser
 alias chrome='chromium-browser'
@@ -691,5 +705,9 @@ function amazon() { chromium-browser http://www.amazon.com/s/ref=nb_ss?field-key
 # Search wikipedia
 function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`encode $@`" ;}
 
-function wp() { wikipedia2text "`encode $@`" | more ;}
+<<<<<<< HEAD
 
+=======
+# Wikipedia in terminal
+function wp() { wikipedia2text "`encode $@`" | more ;}
+>>>>>>> 4c9a7b47b22f3b25b0478882d3dc8b10ccb02e84
