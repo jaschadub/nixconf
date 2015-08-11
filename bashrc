@@ -17,6 +17,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Export for awesome configs
+export XDG_CONFIG_DIRS=~/.config
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -647,7 +649,7 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
 #OpenVPN connections change to your ovpn path
-alias vpnprod='sudo openvpn --client --config ~/.openvpn/prod-client.ovpn'
+alias nmprod='sudo openvpn --client --up ~/.openvpn/ovpn-dns-fix --down ~/.openvpn/ovpn-dns-fix --script-security 2 --config ~/.openvpn/prod-client.ovpn'
 alias vpndev='sudo openvpn --client --config ~/.openvpn/dev-client.ovpn'
 
 ## this one saved my ass many times ##
@@ -688,3 +690,6 @@ function amazon() { chromium-browser http://www.amazon.com/s/ref=nb_ss?field-key
 
 # Search wikipedia
 function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`encode $@`" ;}
+
+function wp() { wikipedia2text "`encode $@`" | more ;}
+
