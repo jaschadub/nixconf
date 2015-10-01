@@ -708,3 +708,9 @@ function wiki() { chromium-browser http://en.wikipedia.org/w/index.php?search="`
 
 # Wikipedia in terminal
 function wp() { wikipedia2text "`encode $@`" | more ;}
+
+# destroy all docker containers..
+docker-purge()
+{
+  docker ps -aq | while read x; do docker stop $x; docker rm $x; done
+}
