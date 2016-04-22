@@ -581,6 +581,14 @@ echo "Kelvin     = $kelv"
 #Docker shortcuts
 alias drm="sudo docker rm"
 alias dps="sudo docker ps"
+alias drmall="sudo docker rm -v $(docker ps -a -q)"
+alias drmiall="sudo docker rmi $(docker images -a -q)"
+alias dps="sudo docker ps"
+function dstop() { sudo docker stop "$@" ;}
+alias dstopall="sudo docker stop $(docker ps -a -q)"
+function dlogs() { sudo docker logs "$@" ;}
+
+# Add Docker run function shortcuts here
 
 # GIT shortcuts
 alias gb='git branch'
