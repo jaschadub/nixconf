@@ -306,7 +306,7 @@ function geoiplookup() { curl -A "Mozilla/5.0" -s "http://www.geody.com/geoip.ph
 ###### get IP address of a given interface
 # Example: getip lo
 # Example: getip eth0	# this is the default
-function getip()		{ lynx -dump http://whatismyip.org/; }
+function getip()		{ lynx -dump https://wtfismyip.com/text; }
 
 
 
